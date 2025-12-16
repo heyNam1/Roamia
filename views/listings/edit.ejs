@@ -1,0 +1,124 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 text-center fw-semibold text-dark">
+            Edit Your Listing ✏️
+          </h3>
+
+          <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="title" class="form-label fw-semibold">Title</label>
+              <input
+                id="title"
+                name="listing[title]"
+                type="text"
+                value="<%= listing.title %>"
+                class="form-control"
+                placeholder="Enter updated title"
+                required
+              />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="description" class="form-label fw-semibold"
+                >Description</label
+              >
+              <textarea
+                id="description"
+                name="listing[description]"
+                class="form-control"
+                rows="3"
+                placeholder="Update description"
+                required
+              >
+<%= listing.description.trim() %></textarea
+              >
+            </div>
+
+            <!-- Image URL -->
+            <div class="mb-3">
+              <label for="image" class="form-label fw-semibold"
+                >Image URL</label
+              >
+              <input
+                id="image"
+                name="listing[image]"
+                type="text"
+                value="<%= listing.image %>"
+                class="form-control"
+                placeholder="Paste new image link"
+              />
+              <div class="text-center mt-3">
+                <img
+                  src="<%= listing.image %>"
+                  alt="listing image"
+                  class="img-fluid rounded shadow-sm"
+                  style="max-height: 180px; object-fit: cover"
+                />
+              </div>
+            </div>
+
+            <!-- Price, Country, Location -->
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="price" class="form-label fw-semibold"
+                  >Price ($)</label
+                >
+                <input
+                  id="price"
+                  name="listing[price]"
+                  type="number"
+                  value="<%= listing.price %>"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="country" class="form-label fw-semibold"
+                  >Country</label
+                >
+                <input
+                  id="country"
+                  name="listing[country]"
+                  type="text"
+                  value="<%= listing.country %>"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="location" class="form-label fw-semibold"
+                  >Location</label
+                >
+                <input
+                  id="location"
+                  name="listing[location]"
+                  type="text"
+                  value="<%= listing.location %>"
+                  class="form-control"
+                />
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <a
+                href="/listings/<%= listing._id %>"
+                class="btn btn-outline-secondary"
+              >
+                Cancel
+              </a>
+              <button type="submit" class="btn btn-dark px-4">
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

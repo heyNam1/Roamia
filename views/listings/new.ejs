@@ -1,0 +1,116 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <h2 class="text-center mb-4 fw-semibold text-dark">
+            Create a New Listing 🏠
+          </h2>
+
+          <form method="POST" action="/listings" novalidate>
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="title" class="form-label fw-semibold">Title</label>
+              <input
+                name="listing[title]"
+                id="title"
+                placeholder="Enter listing title"
+                type="text"
+                class="form-control form-control-lg"
+                required
+              />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="description" class="form-label fw-semibold"
+                >Description</label
+              >
+              <textarea
+                name="listing[description]"
+                id="description"
+                class="form-control"
+                rows="3"
+                placeholder="Describe your place"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Image URL -->
+            <div class="mb-3">
+              <label for="image" class="form-label fw-semibold"
+                >Image URL</label
+              >
+              <input
+                name="listing[image]"
+                id="image"
+                placeholder="Paste image link here"
+                type="text"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <!-- Price, Country, Location -->
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="price" class="form-label fw-semibold"
+                  >Price &#8377;</label
+                >
+                <input
+                  name="listing[price]"
+                  id="price"
+                  type="number"
+                  placeholder="100"
+                  min="0"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="country" class="form-label fw-semibold"
+                  >Country</label
+                >
+                <input
+                  name="listing[country]"
+                  id="country"
+                  placeholder="India"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="location" class="form-label fw-semibold"
+                  >Location</label
+                >
+                <input
+                  name="listing[location]"
+                  id="location"
+                  placeholder="Goa"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid mt-4">
+              <button
+                type="submit"
+                class="btn btn-dark btn-lg rounded-3 shadow-sm"
+              >
+                <i class="fa-solid fa-plus me-2"></i> Add Listing
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
