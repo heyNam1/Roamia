@@ -104,6 +104,10 @@
               <button
                 type="submit"
                 class="btn btn-dark btn-lg rounded-3 shadow-sm"
+                onclick="
+                  this.disabled = true;
+                  this.form.submit();
+                "
               >
                 <i class="fa-solid fa-plus me-2"></i> Add Listing
               </button>
